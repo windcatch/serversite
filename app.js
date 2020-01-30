@@ -8,11 +8,15 @@ app.use((req,resp,next)=>{
     next();
 });
 
+<<<<<<< HEAD
 app.get("/",(req,resp)=>{
     if(!req.session.userInfo){
         resp.send({isLogin:false});
     }
 });
+=======
+ 
+>>>>>>> 0229edc40f9bc0d6d2451627c62f9f89c8e38c7f
 //加载路由
 require("./utils/loadRoute")(app);
 //启动服务器
