@@ -4,7 +4,7 @@
  * @requirns dbConfig
  */
 
-const mysql=require("mysql");
+const mysql=require("mysql"); 
 const dbConfig=require("../config/dbConfig");
 
 /**

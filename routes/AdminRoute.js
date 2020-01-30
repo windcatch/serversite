@@ -13,9 +13,9 @@ router.post("/checkLogin",async (req,resp)=>{
         if(result.length>0){
             //跳转之前，把当前用户的信息记录到系统里的session里面
             req.session.userInfo=result[0];
-            resp.send({cuccess:"登陆成功"});
+            resp.json({success:req.session});
         }else{
-            resp.send({err:"用户名或密码错误"});
+            resp.json({err:"用户名或密码错误"});
         }
     }catch(error){
         resp.status(500);
@@ -23,9 +23,17 @@ router.post("/checkLogin",async (req,resp)=>{
     }
 });
 
+router.get("/log",(req,resp)=>{
+    req.session.userInfo="abc";
+    resp.send("已写入session")
+});
+
 router.get("/",(req,resp)=>{
+    resp.send(req.session);
     if(!req.session.userInfo){
         resp.send({isLogin:false});
+    }else{
+        resp.send({isLogin:true});
     }
 });
 

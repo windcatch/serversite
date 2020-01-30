@@ -27,6 +27,9 @@ app.use(session({
     secret:"wch",//是否加密
     resave:true,//是否可以重新保存
     saveUninitialized:false,//每次保存时是否重新初始化
+    cookie:{
+        maxAge:1000*60*10
+    }
 }));
 
 module.exports={
