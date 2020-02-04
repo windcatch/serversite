@@ -1,5 +1,6 @@
 const { app, server, express, fs } = require("./init");
 
+
 //添加一个拦截器，给相应的请求添加请求头
 app.use((req, resp, next) => {
   resp.setHeader("Access-Control-Allow-Origin", '*');
