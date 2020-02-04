@@ -8,6 +8,11 @@ app.use((req, resp, next) => {
   //放行
   next();
 });
+app.get("/",(req,resp)=>{
+    if(!req.session.userInfo){
+        resp.send({isLogin:false});
+    }
+});
 //加载路由
 require("./utils/loadRoute")(app);
 //启动服务器
